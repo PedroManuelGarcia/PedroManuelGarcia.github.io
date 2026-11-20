@@ -163,6 +163,32 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -0.02em; margin: 0 0
   background: rgba(255, 255, 255, 0.03);
 }
 
+.subtitle { font-size: 1.1rem; margin: 2.5rem 0 1rem; letter-spacing: -0.01em; }
+.facts { list-style: none; padding: 0; margin: 0; color: var(--muted); }
+.facts li { padding: 0.35rem 0 0.35rem 1.25rem; position: relative; }
+.facts li::before { content: ""; position: absolute; left: 0; top: 0.95rem; width: 6px; height: 6px; border-radius: 50%; background: var(--accent-2); }
+.facts strong { color: var(--text); }
+
+/* Línea de tiempo */
+.timeline { list-style: none; margin: 0; padding: 0 0 0 1.75rem; border-left: 1px solid var(--border); }
+.timeline li { position: relative; padding-bottom: 2.25rem; }
+.timeline li:last-child { padding-bottom: 0; }
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: calc(-1.75rem - 5px);
+  top: 0.45rem;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  box-shadow: 0 0 0 4px var(--bg);
+}
+.period { font-size: 0.8rem; font-weight: 600; color: var(--accent-2); letter-spacing: 0.04em; }
+.timeline h3 { font-size: 1.15rem; margin: 0.15rem 0 0.1rem; letter-spacing: -0.01em; }
+.company { color: var(--text); font-size: 0.95rem; margin: 0 0 0.5rem; }
+.timeline p:not(.company) { color: var(--muted); margin: 0; max-width: 42rem; }
+
 /* Contacto */
 .contact {
   text-align: center;
