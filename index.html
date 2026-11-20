@@ -12,6 +12,8 @@
 </head>
 <body>
   <div class="bg-glow" aria-hidden="true"></div>
+  <div class="progress" aria-hidden="true"><span></span></div>
+  <canvas id="neural" aria-hidden="true"></canvas>
 
   <header class="header">
     <a class="logo" href="#inicio">PMG<span>.</span></a>
@@ -37,7 +39,61 @@
       <div class="hero-photo">
         <img src="img/foto-perfil.jpeg" alt="Foto de Pedro Manuel García" width="389" height="389">
       </div>
+
+      <!-- Dibujos abstractos decorativos (IA y C#) -->
+      <div class="decor" aria-hidden="true">
+        <div class="decor-item d1" data-depth="18"><span class="float sym">{ }</span></div>
+        <div class="decor-item d2" data-depth="-22"><span class="float sym">&lt;/&gt;</span></div>
+        <div class="decor-item d3" data-depth="14"><span class="float sym">#</span></div>
+        <div class="decor-item d4" data-depth="-16">
+          <svg class="float" viewBox="0 0 80 92" width="64" height="74" fill="none">
+            <defs><linearGradient id="gHex" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs>
+            <polygon points="40,4 74,23 74,69 40,88 6,69 6,23" stroke="url(#gHex)" stroke-width="2.5" fill="rgba(79,70,229,.06)"/>
+            <polygon points="40,22 58,32 58,60 40,70 22,60 22,32" stroke="url(#gHex)" stroke-width="1.5" opacity=".6"/>
+            <text x="40" y="52" text-anchor="middle" font-family="ui-monospace, Consolas, monospace" font-size="16" font-weight="700" fill="url(#gHex)">AI</text>
+          </svg>
+        </div>
+        <div class="decor-item d5" data-depth="24">
+          <svg class="float" viewBox="0 0 120 90" width="110" height="82" fill="none">
+            <defs><linearGradient id="gNet" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#4f46e5"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs>
+            <path d="M15 65 L45 25 L85 40 L105 15 M45 25 L50 70 L85 40 M15 65 L50 70" stroke="url(#gNet)" stroke-width="1.5" opacity=".7"/>
+            <g fill="url(#gNet)"><circle cx="15" cy="65" r="5"/><circle cx="45" cy="25" r="6"/><circle cx="85" cy="40" r="5"/><circle cx="105" cy="15" r="4"/><circle cx="50" cy="70" r="5"/></g>
+          </svg>
+        </div>
+      </div>
+
+      <!-- Código C# que se escribe solo (el contenido completo es el valor por defecto sin JavaScript) -->
+      <div class="code-window">
+        <div class="browser-bar">
+          <i></i><i></i><i></i>
+          <span>Program.cs</span>
+          <button class="code-replay" type="button" hidden>↻ Repetir</button>
+        </div>
+        <pre><code id="code"><span class="c">// Program.cs · API mínima con .NET</span>
+<span class="k">var</span> builder = <span class="t">WebApplication</span>.<span class="f">CreateBuilder</span>(args);
+builder.Services.<span class="f">AddScoped</span>&lt;<span class="t">IInsightService</span>, <span class="t">InsightService</span>&gt;();
+
+<span class="k">var</span> app = builder.<span class="f">Build</span>();
+
+app.<span class="f">MapGet</span>(<span class="s">"/api/insights/{id:int}"</span>, <span class="k">async</span> (<span class="k">int</span> id, <span class="t">IInsightService</span> svc) =&gt;
+{
+    <span class="k">var</span> insight = <span class="k">await</span> svc.<span class="f">GetAsync</span>(id);
+    <span class="k">return</span> insight <span class="k">is null</span>
+        ? <span class="t">Results</span>.<span class="f">NotFound</span>()
+        : <span class="t">Results</span>.<span class="f">Ok</span>(insight);
+});
+
+app.<span class="f">Run</span>();
+
+<span class="k">public record</span> <span class="t">Insight</span>(<span class="k">int</span> Id, <span class="k">string</span> Title, <span class="k">double</span> Score);</code></pre>
+      </div>
     </section>
+
+    <div class="stats reveal">
+      <div class="stat"><strong data-count="10" data-prefix="+">+10</strong><span>años de experiencia</span></div>
+      <div class="stat"><strong data-count="5">5</strong><span>empresas</span></div>
+      <div class="stat"><strong data-count="2">2</strong><span>webs publicadas</span></div>
+    </div>
 
     <section id="proyectos">
       <p class="section-label">Trabajo seleccionado</p>
@@ -159,21 +215,6 @@
     <p>© <span id="year"></span> Pedro Manuel García</p>
   </footer>
 
-  <script>
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Animación de aparición al hacer scroll
-    const items = document.querySelectorAll('.reveal');
-    if ('IntersectionObserver' in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.15 });
-      items.forEach((el) => io.observe(el));
-    } else {
-      items.forEach((el) => el.classList.add('visible'));
-    }
-  </script>
+  <script src="script.js" defer></script>
 </body>
 </html>
