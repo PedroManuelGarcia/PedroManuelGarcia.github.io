@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pedro Manuel García | Desarrollador web</title>
+  <meta name="description" content="Portfolio de Pedro Manuel García: diseño y desarrollo de páginas web para negocios y profesionales.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <a class="logo" href="#inicio">PMG</a>
+    <nav>
+      <a href="#proyectos">Proyectos</a>
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
+  </header>
+
+  <main>
+    <section id="inicio" class="hero">
+      <p class="eyebrow">Hola, soy</p>
+      <h1>Pedro Manuel García</h1>
+      <p class="lead">Creo páginas web claras y rápidas para negocios y profesionales que quieren ser encontrados en internet.</p>
+      <div class="actions">
+        <a class="btn" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-outline" href="#contacto">Contactar</a>
+      </div>
+    </section>
+
+    <section id="proyectos">
+      <h2>Proyectos</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>Agrocollado</h3>
+          <p class="tag">Web corporativa · Comercio</p>
+          <p>Web para una empresa de plantas dirigida a profesionales y comercios.</p>
+          <a class="link" href="https://agrocollado.com/" target="_blank" rel="noopener">Visitar agrocollado.com →</a>
+        </article>
+
+        <article class="card">
+          <h3>Abogado Vicente Orts</h3>
+          <p class="tag">Web profesional · Servicios legales</p>
+          <p>Web para un despacho de abogados de Alicante con áreas de práctica (penal, familia, desahucios), preguntas frecuentes, reseñas y contacto directo.</p>
+          <a class="link" href="https://abogadovicenteorts.es/" target="_blank" rel="noopener">Visitar abogadovicenteorts.es →</a>
+        </article>
+      </div>
+    </section>
+
+    <section id="sobre-mi">
+      <h2>Sobre mí</h2>
+      <p>Escribe aquí un párrafo corto sobre ti: tu experiencia, cómo trabajas y qué tipo de clientes buscas.</p>
+      <ul class="skills">
+        <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO básico</li><li>Diseño responsive</li>
+      </ul>
+    </section>
+
+    <section id="contacto">
+      <h2>Contacto</h2>
+      <p>¿Tienes un proyecto en mente? Contacta conmigo por LinkedIn.</p>
+      <p>
+        <a class="btn" href="https://www.linkedin.com/in/pedro-manuel-garc%C3%ADa-moreno-144849a7/" target="_blank" rel="noopener">Ir a mi LinkedIn</a>
+      </p>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© <span id="year"></span> Pedro Manuel García</p>
+  </footer>
+
+  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+</body>
+</html>
