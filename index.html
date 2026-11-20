@@ -5,62 +5,86 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pedro Manuel García | Desarrollador web</title>
   <meta name="description" content="Portfolio de Pedro Manuel García: diseño y desarrollo de páginas web para negocios y profesionales.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
   <header class="header">
-    <a class="logo" href="#inicio">PMG</a>
+    <a class="logo" href="#inicio">PMG<span>.</span></a>
     <nav>
       <a href="#proyectos">Proyectos</a>
       <a href="#sobre-mi">Sobre mí</a>
-      <a href="#contacto">Contacto</a>
+      <a class="nav-cta" href="#contacto">Contacto</a>
     </nav>
   </header>
 
   <main>
     <section id="inicio" class="hero">
-      <p class="eyebrow">Hola, soy</p>
-      <h1>Pedro Manuel García</h1>
-      <p class="lead">Creo páginas web claras y rápidas para negocios y profesionales que quieren ser encontrados en internet.</p>
+      <p class="badge"><span class="dot"></span> Disponible para nuevos proyectos</p>
+      <h1>Hola, soy <span class="gradient">Pedro Manuel García</span></h1>
+      <p class="lead">Creo páginas web modernas, claras y rápidas para negocios y profesionales que quieren destacar en internet.</p>
       <div class="actions">
-        <a class="btn" href="#proyectos">Ver proyectos</a>
-        <a class="btn btn-outline" href="#contacto">Contactar</a>
+        <a class="btn btn-primary" href="#proyectos">Ver proyectos</a>
+        <a class="btn btn-ghost" href="#contacto">Hablemos</a>
       </div>
     </section>
 
     <section id="proyectos">
+      <p class="section-label">Trabajo seleccionado</p>
       <h2>Proyectos</h2>
-      <div class="grid">
-        <article class="card">
-          <h3>Agrocollado</h3>
-          <p class="tag">Web corporativa · Comercio</p>
-          <p>Web para una empresa de plantas dirigida a profesionales y comercios.</p>
-          <a class="link" href="https://agrocollado.com/" target="_blank" rel="noopener">Visitar agrocollado.com →</a>
+
+      <div class="projects">
+        <article class="project reveal">
+          <a class="browser" href="https://agrocollado.com/" target="_blank" rel="noopener" aria-label="Visitar agrocollado.com">
+            <div class="browser-bar">
+              <i></i><i></i><i></i>
+              <span>agrocollado.com</span>
+            </div>
+            <img src="img/agrocollado.jpg" alt="Captura de la web de Agrocollado" loading="lazy" width="1440" height="900">
+          </a>
+          <div class="project-info">
+            <p class="tag">Web corporativa · Venta mayorista</p>
+            <h3>Agrocollado</h3>
+            <p>Web para un vivero de Mutxamel (Alicante) que vende plantas a viveros, centros de jardinería, tiendas, floristerías y profesionales.</p>
+            <a class="link" href="https://agrocollado.com/" target="_blank" rel="noopener">Visitar web <span>→</span></a>
+          </div>
         </article>
 
-        <article class="card">
-          <h3>Abogado Vicente Orts</h3>
-          <p class="tag">Web profesional · Servicios legales</p>
-          <p>Web para un despacho de abogados de Alicante con áreas de práctica (penal, familia, desahucios), preguntas frecuentes, reseñas y contacto directo.</p>
-          <a class="link" href="https://abogadovicenteorts.es/" target="_blank" rel="noopener">Visitar abogadovicenteorts.es →</a>
+        <article class="project reveal reverse">
+          <a class="browser" href="https://abogadovicenteorts.es/" target="_blank" rel="noopener" aria-label="Visitar abogadovicenteorts.es">
+            <div class="browser-bar">
+              <i></i><i></i><i></i>
+              <span>abogadovicenteorts.es</span>
+            </div>
+            <img src="img/abogadovicenteorts.jpg" alt="Captura de la web del abogado Vicente Orts" loading="lazy" width="1440" height="900">
+          </a>
+          <div class="project-info">
+            <p class="tag">Web profesional · Servicios legales</p>
+            <h3>Abogado Vicente Orts</h3>
+            <p>Web para un despacho de abogados de Alicante: áreas de práctica (penal, violencia de género, civil y desahucios), preguntas frecuentes, reseñas y contacto directo.</p>
+            <a class="link" href="https://abogadovicenteorts.es/" target="_blank" rel="noopener">Visitar web <span>→</span></a>
+          </div>
         </article>
       </div>
     </section>
 
-    <section id="sobre-mi">
+    <section id="sobre-mi" class="reveal">
+      <p class="section-label">Quién soy</p>
       <h2>Sobre mí</h2>
-      <p>Escribe aquí un párrafo corto sobre ti: tu experiencia, cómo trabajas y qué tipo de clientes buscas.</p>
+      <p class="about">Escribe aquí un párrafo corto sobre ti: tu experiencia, cómo trabajas y qué tipo de clientes buscas.</p>
       <ul class="skills">
         <li>HTML</li><li>CSS</li><li>JavaScript</li><li>SEO básico</li><li>Diseño responsive</li>
       </ul>
     </section>
 
-    <section id="contacto">
-      <h2>Contacto</h2>
-      <p>¿Tienes un proyecto en mente? Contacta conmigo por LinkedIn.</p>
-      <p>
-        <a class="btn" href="https://www.linkedin.com/in/pedro-manuel-garc%C3%ADa-moreno-144849a7/" target="_blank" rel="noopener">Ir a mi LinkedIn</a>
-      </p>
+    <section id="contacto" class="contact reveal">
+      <h2>¿Tienes un proyecto en mente?</h2>
+      <p>Cuéntamelo y vemos cómo hacerlo realidad.</p>
+      <a class="btn btn-primary" href="https://www.linkedin.com/in/pedro-manuel-garc%C3%ADa-moreno-144849a7/" target="_blank" rel="noopener">Contactar por LinkedIn</a>
     </section>
   </main>
 
@@ -68,6 +92,21 @@
     <p>© <span id="year"></span> Pedro Manuel García</p>
   </footer>
 
-  <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // Animación de aparición al hacer scroll
+    const items = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver((entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.15 });
+      items.forEach((el) => io.observe(el));
+    } else {
+      items.forEach((el) => el.classList.add('visible'));
+    }
+  </script>
 </body>
 </html>
