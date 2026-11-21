@@ -212,8 +212,19 @@ app.<span class="f">Run</span>();
   </main>
 
   <footer class="footer">
-    <p>© <span id="year"></span> Pedro Manuel García</p>
+    <p>© <span id="year"></span> Pedro Manuel García · <button type="button" class="link-btn" id="cookies-config">Configurar cookies</button></p>
   </footer>
+
+  <section class="cookie-banner" id="cookie-banner" role="region" aria-labelledby="cookies-titulo" hidden>
+    <div class="cookie-text">
+      <h2 id="cookies-titulo">Cookies de analítica</h2>
+      <p>Uso Google Analytics para saber cuántas personas visitan esta web y qué secciones ven. Solo se activa si lo aceptas (cookies <code>_ga</code>, de Google, hasta 2 años) y puedes cambiar tu decisión cuando quieras desde el pie de página.</p>
+    </div>
+    <div class="cookie-actions">
+      <button type="button" class="cookie-btn" id="cookies-rechazar">Rechazar</button>
+      <button type="button" class="cookie-btn" id="cookies-aceptar">Aceptar</button>
+    </div>
+  </section>
 
   <script src="script.js" defer></script>
 </body>

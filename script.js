@@ -282,7 +282,61 @@ function initNeural() {
   start();
 }
 
+/* Consentimiento de cookies: Google Analytics solo se carga si el visitante lo acepta. */
+function initConsent() {
+  const ID_MEDICION = 'G-MPQZYCRP6W';
+  const CLAVE = 'consentimiento-analitica';
+  const banner = document.getElementById('cookie-banner');
+  if (!banner) return;
+
+  const leer = () => {
+    try {
+      const v = localStorage.getItem(CLAVE);
+      return v === 'aceptado' || v === 'rechazado' ? v : null;
+    } catch { return null; }
+  };
+  const guardar = (v) => {
+    try { localStorage.setItem(CLAVE, v); } catch { /* sin almacenamiento: vale solo para esta visita */ }
+  };
+  // En local (localhost, 127.0.0.1 o archivo abierto directamente) no se envían datos.
+  const esLocal = ['', 'localhost', '127.0.0.1', '[::1]'].includes(location.hostname);
+
+  let cargado = false;
+  const cargarAnalitica = () => {
+    if (cargado || esLocal) return;
+    cargado = true;
+    window.dataLayer = window.dataLayer || [];
+    // gtag.js exige empujar el objeto `arguments`, no un array.
+    function gtag() { window.dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', ID_MEDICION);
+    const s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + ID_MEDICION;
+    document.head.appendChild(s);
+  };
+
+  const decision = leer();
+  banner.hidden = decision !== null;
+  if (decision === 'aceptado') cargarAnalitica();
+
+  document.getElementById('cookies-aceptar').addEventListener('click', () => {
+    guardar('aceptado');
+    banner.hidden = true;
+    cargarAnalitica();
+  });
+  document.getElementById('cookies-rechazar').addEventListener('click', () => {
+    const habiaAceptado = leer() === 'aceptado';
+    guardar('rechazado');
+    banner.hidden = true;
+    // Un script ya cargado no se puede descargar: se recarga para dejar la página sin Analytics.
+    if (habiaAceptado) location.reload();
+  });
+  document.getElementById('cookies-config').addEventListener('click', () => { banner.hidden = false; });
+}
+
 initYear();
+initConsent();
 initReveal();
 initProgress();
 initNavHighlight();
